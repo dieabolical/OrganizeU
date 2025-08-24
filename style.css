@@ -1,0 +1,257 @@
+/*
+style.css - styling for OrganizeU dashboard
+
+purpose: 
+- defines the visual layout, typography, colors, and component styles for the app
+- ensures consistent spacing, alignment, and responsive design across the client
+- styles include: 
+  - general reset for body & all fonts
+  - top bar with logo and welcome message
+  - dashboard grid layout and card styles
+  - buttons including both the add and delete btns
+  - modules, todos, credits and assignments list items
+  - popup moal for adding mods
+  - calendar view styles
+  - input areas for todos, creds and assignments
+- works in conjunction with script.js for the dynamic behaviours
+*/
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/* GENERAL RESET */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f9;
+  color: #333;
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 15px 20px;
+}
+
+.logo {
+  margin: 0;
+}
+
+.welcome {
+  font-size: 14px;
+}
+
+/* DASHBOARD GRID */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card.big h2 {
+  display: inline-block;
+  margin: 0;
+}
+
+.card.big {
+  position: relative;
+}
+
+.card.wide {
+  grid-column: span 2;
+}
+
+/* ADD BUTTON */
+.add-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* GENERIC ITEM STYLES - modules, todos, credits and assignments */
+.module-item,
+.todo-item,
+.credit-item,
+.assignment-item {
+  background: #D3D3D3;
+  margin: 5px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 10px; 
+}
+
+.module-item span,
+.todo-item span,
+.credit-item span,
+.assignment-item span {
+  flex: 1; 
+}
+
+.module-item.completed span,
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* DELETE BUTTONS */
+.module-item .delete-btn,
+.todo-item .delete-btn,
+.credit-item .delete-btn,
+.assignment-item .delete-btn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* POPUP MODAL */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.popup-content h3 {
+  margin-top: 0;
+}
+
+.popup-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.popup-content button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#save-module {
+  background: black;
+  color: white;
+}
+
+#close-popup {
+  background: #ccc;
+}
+
+/* CALENDAR */
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#calendar-view h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#month-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.calendar-day {
+  padding: 10px;
+  background: #D3D3D3;
+  border-radius: 6px;
+}
+
+.calendar-header {
+  font-weight: bold;
+  background: black;
+  color: white;
+}
+
+.today {
+  background: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* ALL INPUT AREAS */
+#todo-input-area,
+#credit-input-area,
+#assignment-input-area {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+#todo-input,
+#credit-input,
+#assignment-input-area input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#add-todo-btn,
+#add-credit-btn,
+#add-assignment-btn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------------------------------*/

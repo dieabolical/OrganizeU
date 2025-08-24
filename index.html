@@ -1,0 +1,100 @@
+<!--
+index.html -> the main structure of organizeU's dashboard
+purpose:
+- serves as the main interface for the web app
+- contains sections for: 
+  - top bar with welcome message and logo
+  - modules and courses management
+  - calendar view of current month
+  - todo list with add and delete functionality
+  - credit checker with total credit calculations
+  - assignment deadlines with name and date inputs
+- includes a popup for adding new modules
+- links to style.css and script.js for interactivity
+- all dynamic elements -> lists, calendar, inputs are populated via script.js
+-->
+
+<!--------------------------------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrganizeU</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-------------------------------TOP BAR--------------------------------->
+    <header class="topbar">
+      <span class="welcome">
+        <h3>welcome back!</h3>
+      </span>
+      <h1 class="logo">OrganizeU</h1>
+    </header>
+
+    <!------------------------------DASHBOARD-------------------------------->
+    <main class="dashboard">
+
+    <!----------------------------MODS & COURSES----------------------------->
+      <section class="card big">
+        <h2>modules & courses</h2>
+        <button class="add-btn">+</button>
+        <div id="modules-list" data-item-class="module-item"></div>
+      </section>
+
+    <!------------------------------CALENDAR--------------------------------->
+      <section class="card" id="calendar-view">
+        <h2>calendar
+          <span id="month-label"></span>
+        </h2>
+        <div id="calendar"></div>
+      </section>
+
+    <!--------------------------------TODO'S--------------------------------->
+      <section class="card" id="todo-card">
+        <h2>TO-DO's</h2>
+        <div id="todo-input-area">
+          <input type="text" id="todo-input" placeholder="add a new task">
+          <button id="add-todo-btn">add</button>
+        </div>
+        <div id="todo-list" data-item-class="todo-item"></div>
+      </section>
+
+    <!----------------------------CREDIT CHECKER----------------------------->
+      <section class="card">
+        <h2>credit checker</h2>
+        <div id="credit-input-area">
+          <input type="number" id="credit-input" placeholder="enter module credits">
+          <button id="add-credit-btn">add</button>
+        </div>
+        <div id="credit-list" data-item-class="credit-item"></div>
+        <div id="total-credits">total credits: 0</div>
+      </section>
+
+    <!-------------------------ASSIGNMENT DEADLINES--------------------------->
+      <section class="card wide">
+        <h2>Assignment Deadlines</h2>
+        <div id="assignment-input-area">
+          <input type="text" id="assignment-name" placeholder="assignment name">
+          <input type="date" id="assignment-date">
+          <button id="add-assignment-btn">add</button>
+        </div>
+        <div id="assignment-list" data-item-class="assignment-item"></div>
+      </section>
+
+    <!------------------------------POPUP FORM--------------------------------->
+    <div id="module-popup" class="popup hidden">
+      <div class="popup-content">
+        <h3>add a new module</h3>
+        <input type="text" id="module-input" placeholder="enter module name">
+        <button id="save-module">save</button>
+        <button id="close-popup">cancel</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!--------------------------------------------------------------------------------------------------------->
